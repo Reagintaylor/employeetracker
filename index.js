@@ -10,7 +10,7 @@ const startPrompt = [
   ]
 
 
-
+// fix inquirer path to where it needs to go
 inquirer
   .prompt(startPrompt)
   .then((data) => {
