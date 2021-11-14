@@ -2,6 +2,7 @@
 // const fs = require('fs')
 const express = require('express')
 const mysql = require('mysql2') // How to add the mysql login info
+const path = require('path')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -22,6 +23,11 @@ const db = mysql.createConnection(
   },
   console.log(`Connected to the books_db database.`)
 );
+
+// Query database
+db.query('SELECT * FROM //table name ', function (err, results) {
+    console.log(results);
+  });
 
 
 // Default response for any other request (Not Found)
