@@ -2,7 +2,8 @@
 // const fs = require('fs')
 const express = require('express')
 const mysql = require('mysql2') // How to add the mysql login info
-const path = require('path')
+const path = require('path');
+const { inherits } = require('util');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -39,3 +40,4 @@ app.use((req, res) => {
     console.log(`Server running on port ${PORT}`);
   });
   
+  module.exports = db;
