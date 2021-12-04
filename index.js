@@ -1,7 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const table = require('console.table');
-const db = require('./server')
+const db = require('./config/server')
+// const update = require('./')
+// const view = require('./')
+// const add = require('./')
 const startPrompt = [
     {
       type: 'list',
@@ -29,37 +32,44 @@ async function init() {
   .then((startPrompt) => {
     if ('view all departments'){
         console.log('departments')
+
         init();
         //present a formatted table showing department names and department ids
 
     } else if ('view all roles'){
         console.log('roles')
+
         init();
         // presented with the job title, role id, the department that role belongs to, and the salary for that role
 
     } else if ('view all employees'){
         console.log('employeee')
+
         init();
         //presented with a formatted table showing employee data, including employee ids, first names, last names, job titles, departments, salaries, and managers that the employees report to
     } else if ('add a department'){
         console.log('add depart')
+
         init();
         //I am prompted to enter the name of the department and that department is added to the database
 
     } else if ('add a role'){
         console.log('add role')
+
         init();
         // I am prompted to enter the name, salary, and department for the role and that role is added to the database
     } else if ('add an employee'){
         console.log('add employ')
+
         init();
         //I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
     } else if ('update an employee role'){
         console.log('updated employee role')
+        
         init();
         //I am prompted to select an employee to update and their new role and this information is updated in the database 
     } else {
-        console.log('exit');
+        console.log('bye!');
         process.exit();
     }
 
