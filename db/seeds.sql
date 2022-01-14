@@ -1,6 +1,6 @@
 INSERT INTO departments (department_name)
 VALUES ("General Management"),
-       ("MArketing"),
+       ("Marketing"),
        ("Operations"),
        ("Finance"),
        ("Sales"),
