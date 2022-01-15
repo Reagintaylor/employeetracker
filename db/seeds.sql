@@ -17,10 +17,10 @@ VALUES (3, "Accounting manager", 40000),
        (9, "Sales Associate", 40000);
 
 INSERT INTO employees (id, first_names, last_names, salary, manager)
-VALUES (2, "Reagin", "Turner", 1, 'ffdfds'),
-       (3, "Paris", "Coleman", 3, 'fffdsd'),
-       (4, "Kelsey", "Perkins", 5, 'fdsfdsd'),
-       (5, "Leci", "Reid", 1, 'fdsfds'),
-       (6, "Sharrone", "Bryant", 2, 'fsdfds'),
-       (7, "Kalena", "Marshall", 4, 'fdsfds'),
-       (8, "Robbin", "Gleaton", 1, 'fdsfs');
+VALUES (2, "Reagin", "Turner", 1, 'Bob'),
+       (3, "Paris", "Coleman", 3, 'Bob'),
+       (4, "Kelsey", "Perkins", 5, 'Joe'),
+       (5, "Leci", "Reid", 1, 'Sally'),
+       (6, "Sharrone", "Bryant", 2, 'Jessica'),
+       (7, "Kalena", "Marshall", 4, 'Gina'),
+       (8, "Robbin", "Gleaton", 1, 'Fred');
