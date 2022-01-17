@@ -23,7 +23,7 @@ node server
 
 
 Todos
-- Change the data to actual employee data
 - Re read the acceptance criteria
-- Get the server to start up and for the questions to pop up
 - finish adding the functions that with add, update, etc
+- reqorganize questions into question.js and just import and reference them
+

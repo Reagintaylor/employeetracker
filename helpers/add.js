@@ -1,11 +1,11 @@
 const inquirer = require("inquirer");
 const db = require('../config/connection');
-const { addDepartmentQuestion, starterQuestions } = require('../lib/questions');
+const { addDepartmentQ, starterQs } = require('../src/questions');
 
 const add = () => {
     if ("add a department"){
         inquirer
-                .prompt(addDepartmentQuestion)
+                .prompt(addDepartmentQ)
                 .then((answer) => {
                     let dsql = `INSERT INTO departments (name) VALUES (?)`;
                     let dparams = [answer.departmentName];
@@ -56,8 +56,8 @@ const add = () => {
             });
 
     } else if ('add an employee') {
-            const addEMPQuery="SELECT * FROM employees JOIN roles ON employees.role_id = roles.id"
-            db.query(addEMPQuery, (err, results) => {
+            const addEmpQuery="SELECT * FROM employees JOIN roles ON employees.role_id = roles.id"
+            db.query(addEmpQuery, (err, results) => {
                 if (err) console.log(err);
                 let manArray = [];
                 let roleArray = [];
