@@ -6,21 +6,21 @@ const view = () => {
             let dsql = `SELECT * FROM departments`;
             db.query(dsql, (err, result) => {
                 if (err) console.log(err);
-                table(result);
+                console.table(result);
                 
             });
         } else if ('roles'){
             let rsql = `SELECT * FROM roles`;
             db.query(rsql, (err, result) => {
                 if (err) console.log(err);
-                table(result);
+                console.table(result);
 
             });
         } else if ("employees") {
             let esql = "SELECT * FROM employees";
             db.query(esql, (err, result) => {
                 if (err) console.log(err);
-                table(result);
+                console.table(result);
 
             });
         }

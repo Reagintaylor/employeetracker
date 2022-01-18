@@ -9,7 +9,9 @@ const { starterQs } = require('./src/questions');
 
 //Starts the app
 db.connect((err) => {
-  if (err) throw err;
+  if (err) {
+      console.log(err)
+    };
   console.log("\n EMPLOYEE TRACKER \n");
   init();
 });
@@ -22,29 +24,30 @@ async function init() {
     if ('view all departments'){
         view('departments')
         init();
-
+console.log("ffff")
+console.table("ffffffffffff")
     } else if ('view all roles'){
         view('roles')
         init();
 
     } else if ('view all employees'){
-        view('employeee')
+        view('employees')
         init();
 
     } else if ('add a department'){
-        add('department')
+        add('departments')
         init();
 
     } else if ('add a role'){
-        add('role')
+        add('roles')
         init();
 
     } else if ('add an employee'){
-        add('employee')
+        add('employees')
         init();
 
     } else if ('update an employee role'){
-        update('role')
+        update('roles')
         init();
        
     } else if ("update an employee manager"){
@@ -53,10 +56,9 @@ async function init() {
 
     } else {
         console.log('bye!');
-        table('bye!');
+        console.table('bye!');
         process.exit();
     }
 
   });}
 
-  
