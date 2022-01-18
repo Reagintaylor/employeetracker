@@ -15,7 +15,7 @@ node server
 ```
 
 ## Links
-- [!Video]()
+- ![Video]()
 - [Github]()
 
 ## Questions?
@@ -26,4 +26,7 @@ Todos
 - Re read the acceptance criteria
 - finish adding the functions that with add, update, etc
 - reqorganize questions into question.js and just import and reference them
+- db.connect won't work
+
+
 

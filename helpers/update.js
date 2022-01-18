@@ -1,13 +1,14 @@
 const inquirer = require("inquirer");
-const db = require('../config/server.js'); //should I require db?
+const db = require('../config/connection'); 
+const { updateQs, updateRoleQs } = require('../src/questions');
 
 const update = () => {
     if('update an employee role') {
             const updateManQuery = "SELECT * FROM employees JOIN roles ON employees.role_id = roles.id"
             db.query(updateManQuery, (err, results) => {
                 if (err) console.log(err);
-                let manArray = [];
-                let employeeArray = [];
+                // let manArray = [];
+                // let employeeArray = [];
 
                 results.forEach((element) => {
                     employeeArray.push(`${element.id}:${element.first_name} ${element.last_name}`)
@@ -18,20 +19,7 @@ const update = () => {
                 });
 
                 inquirer
-                    .prompt([
-                        {
-                            type: "list",
-                            message: "Which employee do you want to update?",
-                            name: "employeeUpdate",
-                            choices: employeeArray,
-                        },
-                        {
-                            type: "list",
-                            message: "Who is their managers now?",
-                            name: "manUpdate",
-                            choices: manArray,
-                        }
-                    ])
+                    .prompt(updateQs)
                     .then((answers) => {
                         let empId = answers.employeeUpdate.substring(0, answers.employeeUpdate.indexOf(":")
                         );
@@ -44,16 +32,17 @@ const update = () => {
                         db.query(msql, mparams, (err, result) => {
                             if (err) console.log(err);
                             console.log('Employee Manager Updated!')
+                            console.log(result)
                         });
                     });
             });
         
-        if ("role"):
+        if ("role"){
             const updateRoleQuery = "SELECT * FROM employees JOIN roles ON employees.role_id = roles.id"
             db.query(updateRoleQuery, (err, results) => {
                 if (err) console.log(err);
-                let roleArray = [];
-                let employeeArray = [];
+                // let roleArray = [];
+                // let employeeArray = [];
 
                 results.forEach((element) => {
                     employeeArray.push(`${element.id}:${element.first_name} ${element.last_name}`)
@@ -63,34 +52,23 @@ const update = () => {
                     roleArray.push(`${element.id}:${element.title}`);
                 });
                 inquirer
-                    .prompt([
-                        {
-                            type: "list",
-                            message: "Which employee do you want to update?",
-                            name: "employeeUpdate",
-                            choices: employeeArray,
-                        },
-                        {
-                            type: "list",
-                            message: "Chose their new role?",
-                            name: "roleUpdate",
-                            choices: roleArray,
-                        }
-                    ])
+                    .prompt(updateRoleQs)
                     .then((answers) => {
                         let empId = answers.employeeUpdate.substring(0, answers.employeeUpdate.indexOf(":")
                         );
 
                         let roleId = answers.roleUpdate.substring(0, answers.roleUpdate.indexOf(":")
                         );
-                        let rsql = `UPDATE employees SET role_id = ? WHERE id = ?`;
-                        let rparams = [roleId, empId];
-                        db.query(rsql, rparams, (err, result) => {
+                        let rolesql = `UPDATE employees SET role_id = ? WHERE id = ?`;
+                        let roleparams = [roleId, empId];
+                        db.query(rolesql, roleparams, (err, result) => {
                             if (err) console.log(err);
                             console.log('Employee Role Updated!')
+                            console.log(result)
                         });
                     });
             });
+        }
         
     }
 };

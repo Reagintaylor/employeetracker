@@ -1,36 +1,29 @@
 const db = require('../config/connection');
 const table = require('console.table');
 
-const view = function(type) {
-    switch (type) {
-        case "departments":
+const view = () => {
+    if ('departments') {
             let dsql = `SELECT * FROM departments`;
             db.query(dsql, (err, result) => {
                 if (err) console.log(err);
                 table(result);
                 
             });
-            break;
-        case "roles":
+        } else if ('roles'){
             let rsql = `SELECT * FROM roles`;
             db.query(rsql, (err, result) => {
                 if (err) console.log(err);
                 table(result);
 
             });
-
-            break;
-        case "employees":
+        } else if ("employees") {
             let esql = "SELECT * FROM employees";
             db.query(esql, (err, result) => {
                 if (err) console.log(err);
                 table(result);
 
             });
-
-            break;
-    }
-
+        }
 };
 
 module.exports = view;

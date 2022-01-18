@@ -12,3 +12,4 @@ const db = mysql.createConnection(
   },
   console.log(`Connected to the books_db database.`)
 );
+

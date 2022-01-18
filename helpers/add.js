@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const db = require('../config/connection');
-const { addDepartmentQ, starterQs } = require('../src/questions');
+const { addDepartmentQ, addRoleQs, addEmployeeQs } = require('../src/questions');
 
 const add = () => {
     if ("add a department"){
@@ -19,31 +19,14 @@ const add = () => {
             const addRoleQuery = `SELECT * FROM departments`;
             db.query(addRoleQuery, (err, results) => {
                 if (err) console.log(err);
-                let choiceArray = [];
+                // let choiceArray = [];
+                
                 results.forEach((element) => {
                     choiceArray.push(`${element.id}:${element.name}`);
-
                 });
 
                 inquirer
-                    .prompt([
-                        {
-                            type: "input",
-                            message: "What is the role's title?",
-                            name: "roleName",
-                        },
-                        {
-                            type: "input",
-                            message: "What is the role's salary?",
-                            name: "roleSalary",
-                        },
-                        {
-                            type: "list",
-                            message: "Which department does the role belong to?",
-                            name: "roleDepartment",
-                            choices: choiceArray
-                        },
-                    ])
+                    .prompt(addRoleQs)
                     .then((answers) => {
                         let role_dept = answers.roleDepartment.substring(0, answers.roleDepartment.indexOf(":"));
                         console.log(role_dept)
@@ -59,8 +42,8 @@ const add = () => {
             const addEmpQuery="SELECT * FROM employees JOIN roles ON employees.role_id = roles.id"
             db.query(addEmpQuery, (err, results) => {
                 if (err) console.log(err);
-                let manArray = [];
-                let roleArray = [];
+                // let manArray = [];
+                // let roleArray = [];
 
                 results.forEach((element) => {
                     manArray.push(`${element.id}:${element.first_name} ${element.last_name}`);
@@ -71,30 +54,7 @@ const add = () => {
                 });
 
                 inquirer
-                    .prompt([
-                        {
-                            type: "input",
-                            message: "What is the employee's first name?",
-                            name: "employeeFName",
-                        },
-                        {
-                            type: "input",
-                            message: "What is the employee's last name?",
-                            name: "employeeLName",
-                        },
-                        {
-                            type: "list",
-                            message: "Which is the employee's role?",
-                            name: "employeeRole",
-                            choices: roleArray,
-                        },
-                        {
-                            type: "list",
-                            message: "Who is the employee's manager?",
-                            name: "employeeManager",
-                            choices: manArray,
-                        },
-                    ])
+                    .prompt(addEmployeeQs)
                     .then((answers) => {
                         let roleId = answers.employeeRole.substring(0, answers.employeeRole.indexOf(":")
                         );
