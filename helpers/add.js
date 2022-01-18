@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const db = require('../config/connection');
 const { addDepartmentQ, addRoleQs, addEmployeeQs } = require('../src/questions');
+const init = require('../server')
+const table = require('console.table')
 
 const add = () => {
     if ("add a department"){
@@ -13,6 +15,7 @@ const add = () => {
                         if (err) console.log(err);
                         console.log('Department Inserted!')
                     });
+                    // init();
                 });
 
     } else if ('add a role'){
@@ -29,12 +32,13 @@ const add = () => {
                     .prompt(addRoleQs)
                     .then((answers) => {
                         let role_dept = answers.roleDepartment.substring(0, answers.roleDepartment.indexOf(":"));
-                        console.log(role_dept)
+                        console.table(role_dept)
                         let rsql = `INSERT INTO roles(title, salary, department_id) VALUES ("${answers.roleName}",${answers.roleSalary}, ${role_dept})`;
                         db.query(rsql, (err, result) => {
                             if (err) console.log(err);
                             console.log('Role Inserted!')
                         });
+                        // init();
                     });
             });
 
@@ -67,7 +71,9 @@ const add = () => {
                             if (err) console.log(err);
                             console.log('Employee Inserted!')
                         });
-
+                        // calling the table to show up
+                        // console.table(esql);
+                        // init();
                     });
             });
         }

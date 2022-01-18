@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const db = require('../config/connection'); 
 const { updateQs, updateRoleQs } = require('../src/questions');
+const init = require('../server')
 
 const update = () => {
     if('update an employee role') {
@@ -34,6 +35,7 @@ const update = () => {
                             console.log('Employee Manager Updated!')
                             console.log(result)
                         });
+                        // init()
                     });
             });
         
@@ -66,6 +68,7 @@ const update = () => {
                             console.log('Employee Role Updated!')
                             console.log(result)
                         });
+                        // init();
                     });
             });
         }
