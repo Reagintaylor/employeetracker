@@ -16,17 +16,11 @@ node server
 
 ## Links
 - ![Video]()
-- [Github]()
+- [Github](https://github.com/Reagintaylor/employeetracker)
 
 ## Questions?
 - You can direct questions to my email at: add email!!
 
-
-Todos
-- Re read the acceptance criteria
-- finish adding the functions that with add, update, etc
-- reqorganize questions into question.js and just import and reference them
-- db.connect won't work
 
 
 

@@ -3,21 +3,21 @@ const table = require('console.table');
 
 const view = () => {
     if ('departments') {
-            let dsql = `SELECT * FROM departments`;
+            let dsql = `SELECT * FROM departments;`;
             db.query(dsql, (err, result) => {
                 if (err) console.log(err);
                 console.table(result);
                 
             });
         } else if ('roles'){
-            let rsql = `SELECT * FROM roles`;
+            let rsql = `SELECT * FROM roles;`;
             db.query(rsql, (err, result) => {
                 if (err) console.log(err);
                 console.table(result);
 
             });
         } else if ("employees") {
-            let esql = "SELECT * FROM employees";
+            let esql = "SELECT * FROM employees;";
             db.query(esql, (err, result) => {
                 if (err) console.log(err);
                 console.table(result);
