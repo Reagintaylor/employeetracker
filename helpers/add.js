@@ -1,10 +1,10 @@
 const inquirer = require("inquirer");
 const db = require('../config/connection');
-const { addDepartmentQ, addRoleQs, addEmployeeQs } = require('../src/questions');
+const { addDepartmentQ, addRoleQs, addEmployeeQs, starterQs } = require('../src/questions');
 const init = require('../server')
 const table = require('console.table')
 
-const add = () => {
+const add = (starterQs) => {
     if ("add a department"){
         inquirer
                 .prompt(addDepartmentQ)

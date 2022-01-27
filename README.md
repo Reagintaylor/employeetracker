@@ -15,7 +15,7 @@ node server
 ```
 
 ## Links
-- ![Video]()
+- ![Video](https://watch.screencastify.com/v/ktVg8f0sV8x48A8Dzqm8)
 - [Github](https://github.com/Reagintaylor/employeetracker)
 
 ## Questions?

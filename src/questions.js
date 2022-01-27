@@ -17,7 +17,6 @@ const starterQs = [
           "Add A Role",
           "Add An Employee",
           "Update An Employee Role",
-          "Update An Employee Manager",
           "Exit"
         ],
       },
@@ -81,12 +80,6 @@ const updateQs = [
         message: "Which employee do you want to update?",
         name: "employeeUpdate",
         choices: employeeArray,
-    },
-    {
-        type: "list",
-        message: "Who is their managers now?",
-        name: "manUpdate",
-        choices: manArray,
     }
 ]
 

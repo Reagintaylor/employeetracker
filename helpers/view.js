@@ -1,7 +1,8 @@
 const db = require('../config/connection');
 const table = require('console.table');
+const { starterQs } = require('../src/questions');
 
-const view = () => {
+const view = (starterQs) => {
     if ('departments') {
             let dsql = `SELECT * FROM departments;`;
             db.query(dsql, (err, result) => {
