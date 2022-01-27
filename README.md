@@ -1,9 +1,7 @@
 # employeetracker
 
 ## Description
-
-## Table of Contents
-- 
+This is an employee tracker that allows you to add a role, employee, and department as well as update the role and will show you all of the departments.
 
 ## Technologies Used
 - Node, JavaScript, MySQL, NPM, 
@@ -19,7 +17,7 @@ node server
 - [Github](https://github.com/Reagintaylor/employeetracker)
 
 ## Questions?
-- You can direct questions to my email at: add email!!
+- You can direct questions to my email at: rturnerafteragnes@gmail.com 
 
 
 
